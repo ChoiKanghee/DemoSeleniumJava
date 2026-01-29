@@ -77,7 +77,7 @@ public class BaseTest {
         options.addArguments("use-fake-ui-for-media-stream");
 
         // Thêm tùy chọn để chạy Chrome ở chế độ ẩn danh
-        options.addArguments("--incognito");
+//        options.addArguments("--incognito");
 
         // Tạo một thư mục dữ liệu người dùng tạm thời và duy nhất
 //        try {

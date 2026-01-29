@@ -55,3 +55,7 @@ Feature: Demo for POC
       | Telecom Project         | telecom         |
       | Payment Gateway Project | payment-gateway |
       | New Tours               | newtours        |
+
+#    Viết thêm function để switch tab
+  Scenario: Check new tab
+    When i open new tab

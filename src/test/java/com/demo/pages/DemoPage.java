@@ -97,4 +97,22 @@ public class DemoPage {
         assertTrue(actual.contains(expected), "URL trả về không đúng");
         System.out.println("URL:" + actual);
     }
+
+    public static void openNewTab(){
+        WebUI.openNewTab();
+        WebUI.switchToWindowIndex(1);
+        WebUI.delay(5);
+        WebUI.openURL("https://example.com");
+        WebUI.delay(5);
+        System.out.println("URL: " + DriverManager.getDriver().getCurrentUrl());
+        System.out.println("Title: " + DriverManager.getDriver().getTitle());
+        System.out.println("Handles: " + DriverManager.getDriver().getWindowHandles().size());
+        WebUI.openURL("https://www.google.com/");
+        WebUI.back();
+        WebUI.delay(5);
+        WebUI.refresh();
+        WebUI.delay(5);
+        WebUI.forward();
+
+    }
 }

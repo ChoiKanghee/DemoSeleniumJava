@@ -60,4 +60,9 @@ public class StepDemo {
     public void iShouldBeNavigatedToPage(String expectedPageURL) {
         DemoPage.verifyNavigateURLPage(expectedPageURL);
     }
+
+    @When("i open new tab")
+    public void iOpenNewTab() {
+        DemoPage.openNewTab();
+    }
 }

@@ -112,6 +112,23 @@ public class WebUI {
         }
     }
 
+    @Step("Double click element {0}")
+    public static void doubleClickElement(By by) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Actions actions = new Actions(DriverManager.getDriver());
+        actions.doubleClick(getWebElement(by)).perform();
+
+        LogUtils.info("Double clicked element " + by);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("doubleClickElement_" + SystemHelpers.makeSlug(by.toString()));
+        }
+    }
+
+
     @Step("Click element {0} with timeout {1}")
     public static void clickElement(By by, int timeout) {
         waitForPageLoaded();
@@ -532,6 +549,28 @@ public class WebUI {
         return attributeValue; // Trả về một giá trị kiểu String
     }
 
+    @Step("Verify element {0} attribute {1} has value {2}")
+    public static void verifyElementAttributeValue(By testObject,
+                                                   String attributeName,
+                                                   String expectedValue,
+                                                   int timeout) {
+        try {
+            waitForPageLoaded();
+            waitForElementVisible(testObject, timeout);
+
+            String actualValue = getWebElement(testObject).getAttribute(attributeName);
+            LogUtils.info("Verify attribute '" + attributeName +
+                    "': actual='" + actualValue + "', expected='" + expectedValue + "'");
+
+            Assert.assertEquals(actualValue, expectedValue,
+                    "Attribute value mismatch for " + testObject);
+
+        } catch (Exception e) {
+            LogUtils.error("verifyElementAttributeValue failed. Root cause: " + e.getMessage());
+            Assert.fail("verifyElementAttributeValue failed for " + testObject);
+        }
+    }
+
     public static void sleep(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
@@ -829,6 +868,173 @@ public class WebUI {
         } catch (Exception e) {
             LogUtils.error("Failed to press ENTER on element " + by + ". The root cause is: " + e.getMessage());
             return false;
+        }
+    }
+
+    @Step("Get CSS value {1} of element {0}")
+    public static String getCSSValue(By testObject, String cssPropertyName) {
+        waitForPageLoaded();
+        waitForElementVisible(testObject);
+        sleep(STEP_TIME);
+
+        String cssValue = getWebElement(testObject).getCssValue(cssPropertyName);
+        LogUtils.info("Get CSS '" + cssPropertyName + "': " + cssValue);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot(
+                    "getCSSValue_" + cssPropertyName + "_" + SystemHelpers.makeSlug(testObject.toString())
+            );
+        }
+        return cssValue;
+    }
+
+    @Step("Get current window index")
+    public static int getWindowIndex() {
+        WebDriver driver = DriverManager.getDriver();
+        String currentHandle = driver.getWindowHandle();
+
+        int index = 0;
+        for (String handle : driver.getWindowHandles()) {
+            if (handle.equals(currentHandle)) {
+                LogUtils.info("Current window index: " + index);
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+
+    @Step("Switch to window index {0}")
+    public static void switchToWindowIndex(int index) {
+        WebDriver driver = DriverManager.getDriver();
+        int i = 0;
+
+        for (String handle : driver.getWindowHandles()) {
+            if (i == index) {
+                driver.switchTo().window(handle);
+                waitForPageLoaded();
+                LogUtils.info("Switched to window index: " + index);
+                return;
+            }
+            i++;
+        }
+        Assert.fail("Cannot switch to window index " + index);
+    }
+
+    @Step("Switch to window with title {0}")
+    public static void switchToWindowTitle(String title) {
+        WebDriver driver = DriverManager.getDriver();
+
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+            if (driver.getTitle().equals(title)) {
+                waitForPageLoaded();
+                LogUtils.info("Switched to window with title: " + title);
+                return;
+            }
+        }
+        Assert.fail("Cannot find window with title: " + title);
+    }
+
+    @Step("Switch to window with URL {0}")
+    public static void switchToWindowUrl(String url) {
+        WebDriver driver = DriverManager.getDriver();
+
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+            if (driver.getCurrentUrl().equals(url)) {
+                waitForPageLoaded();
+                LogUtils.info("Switched to window with URL: " + url);
+                return;
+            }
+        }
+        Assert.fail("Cannot find window with URL: " + url);
+    }
+
+    @Step("Close window at index {0}")
+    public static void closeWindowIndex(int index) {
+        WebDriver driver = DriverManager.getDriver();
+        int i = 0;
+
+        for (String handle : driver.getWindowHandles()) {
+            if (i == index) {
+                driver.switchTo().window(handle);
+                driver.close();
+                LogUtils.info("Closed window at index: " + index);
+
+                // Switch back to first window if exists
+                for (String remainHandle : driver.getWindowHandles()) {
+                    driver.switchTo().window(remainHandle);
+                    break;
+                }
+                return;
+            }
+            i++;
+        }
+        Assert.fail("Cannot close window at index: " + index);
+    }
+
+
+    @Step("Navigate back")
+    public static void back() {
+        DriverManager.getDriver().navigate().back();
+        waitForPageLoaded();
+        LogUtils.info("Navigate back");
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("back");
+        }
+    }
+
+    @Step("Navigate forward")
+    public static void forward() {
+        DriverManager.getDriver().navigate().forward();
+        waitForPageLoaded();
+        LogUtils.info("Navigate forward");
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("forward");
+        }
+    }
+
+    @Step("Refresh current page")
+    public static void refresh() {
+        DriverManager.getDriver().navigate().refresh();
+        waitForPageLoaded();
+        LogUtils.info("Refresh current page");
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("refresh");
+        }
+    }
+
+    @Step("Open new browser tab")
+    public static void openNewTab() {
+        WebDriver driver = DriverManager.getDriver();
+        driver.switchTo().newWindow(WindowType.TAB);
+        waitForPageLoaded();
+
+        LogUtils.info("Opened new browser tab");
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("openNewTab");
+        }
+    }
+
+    @Step("Open new browser tab and navigate to {0}")
+    public static void openNewTab(String url) {
+        WebDriver driver = DriverManager.getDriver();
+        driver.switchTo().newWindow(WindowType.TAB);
+        driver.get(url);
+        waitForPageLoaded();
+
+        LogUtils.info("Opened new browser tab and navigated to: " + url);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot(
+                    "openNewTab_" + SystemHelpers.makeSlug(url)
+            );
         }
     }
 
