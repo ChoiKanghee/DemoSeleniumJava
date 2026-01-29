@@ -12,8 +12,9 @@ target/
 *.iml
 *.ipr
 
-### Framework ###
-log/
+# Test / report artifacts
+allure-results/
+logs/
 reports/
 
 ### Eclipse ###
