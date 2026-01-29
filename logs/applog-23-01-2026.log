@@ -1,0 +1,10 @@
+[INFO] 23-01-2026 09:51:41 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 23-01-2026 09:51:43 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 23-01-2026 09:52:57 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 23-01-2026 09:53:02 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Log in')]
+[INFO] 23-01-2026 09:53:03 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Continue with email')]
+[ERROR] 23-01-2026 09:53:31 [main] [LogUtils] - Element not exist. By.xpath: //div[@id='prompt-textarea']
+[INFO] 23-01-2026 09:53:38 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 23-01-2026 09:53:39 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Log in')]
+[INFO] 23-01-2026 10:41:59 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 23-01-2026 10:41:59 [main] [LogUtils] - Verify equals: https://demo.guru99.com/null and https://demo.guru99.com/

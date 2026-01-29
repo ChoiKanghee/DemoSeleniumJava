@@ -1,0 +1,33 @@
+[INFO] 22-01-2026 17:41:42 [main] [LogUtils] - Open URL: https://katalon.com/
+[ERROR] 22-01-2026 17:41:50 [main] [LogUtils] - Element not exist. By.xpath: //div[@id='prompt-textarea']
+[INFO] 22-01-2026 17:42:24 [main] [LogUtils] - Open URL: https://katalon.com/
+[ERROR] 22-01-2026 17:42:54 [main] [LogUtils] - Element not exist. By.xpath: //input[@placeholder='Username']
+[INFO] 22-01-2026 17:59:18 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:02:35 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:05:34 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:06:52 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:07:53 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:07:58 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Log in')]
+[INFO] 22-01-2026 18:07:58 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Continue with email')]
+[INFO] 22-01-2026 18:08:02 [main] [LogUtils] - Clicked element By.xpath: //input[@id='username']
+[INFO] 22-01-2026 18:08:02 [main] [LogUtils] - Set text: abc on element By.xpath: //input[@id='username']
+[ERROR] 22-01-2026 18:08:37 [main] [LogUtils] - Timeout waiting for the element Visible. By.xpath: //input[@id='password']
+[INFO] 22-01-2026 18:09:37 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:09:42 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Log in')]
+[INFO] 22-01-2026 18:09:42 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Continue with email')]
+[INFO] 22-01-2026 18:09:45 [main] [LogUtils] - Clicked element By.xpath: //input[@id='username']
+[INFO] 22-01-2026 18:09:45 [main] [LogUtils] - Set text: abc on element By.xpath: //input[@id='username']
+[INFO] 22-01-2026 18:09:51 [main] [LogUtils] - Clicked element By.xpath: //input[@name='password']
+[INFO] 22-01-2026 18:09:51 [main] [LogUtils] - Set text: 12345 on element By.xpath: //input[@name='password']
+[ERROR] 22-01-2026 18:10:06 [main] [LogUtils] - Timeout waiting for the element Visible. By.xpath: //span[contains(text(),'Log in')]
+[INFO] 22-01-2026 18:12:55 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:13:00 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Log in')]
+[INFO] 22-01-2026 18:13:00 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Continue with email')]
+[INFO] 22-01-2026 18:13:03 [main] [LogUtils] - Clicked element By.xpath: //input[@id='username']
+[INFO] 22-01-2026 18:13:03 [main] [LogUtils] - Set text: abc on element By.xpath: //input[@id='username']
+[INFO] 22-01-2026 18:13:09 [main] [LogUtils] - Clicked element By.xpath: //input[@name='password']
+[INFO] 22-01-2026 18:13:09 [main] [LogUtils] - Set text: 12345 on element By.xpath: //input[@name='password']
+[INFO] 22-01-2026 18:13:17 [main] [LogUtils] - Clicked element By.xpath: //div[@class='sign_in_btn btn-log-in']
+[INFO] 22-01-2026 18:15:35 [main] [LogUtils] - Open URL: https://katalon.com/
+[INFO] 22-01-2026 18:15:40 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Log in')]
+[INFO] 22-01-2026 18:15:40 [main] [LogUtils] - Clicked element By.xpath: //*[contains(text(), 'Continue with email')]

@@ -1,0 +1,55 @@
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Element is present: By.xpath: //img[@alt='Guru99 Demo Sites']
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Get text: Guru99 Bank
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Verify equals: Guru99 Bank and Guru99 Bank
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Get text: Enter your email address to get
+access details to demo site
+[INFO] 27-01-2026 10:13:28 [main] [LogUtils] - Verify equals: Enter your email address to get
+access details to demo site and Enter your email address to get
+access details to demo site
+[INFO] 27-01-2026 10:13:34 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:13:34 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:13:34 [main] [LogUtils] - Clicked element By.xpath: //input[@name='btnLogin']
+[INFO] 27-01-2026 10:13:35 [main] [LogUtils] - Get text: Email ID must not be blank
+[INFO] 27-01-2026 10:13:35 [main] [LogUtils] - Verify equals: Email ID must not be blank and Email ID must not be blank
+[INFO] 27-01-2026 10:13:40 [main] [LogUtils] - Set text: ádasdasdasda on element By.xpath: //input[@name='emailid']
+[INFO] 27-01-2026 10:13:45 [main] [LogUtils] - Set text: 123456789 on element By.xpath: //input[@name='emailid']
+[INFO] 27-01-2026 10:13:50 [main] [LogUtils] - Get text: Email ID is not valid
+[INFO] 27-01-2026 10:13:50 [main] [LogUtils] - Verify equals: Email ID is not valid and Email ID is not valid
+[INFO] 27-01-2026 10:13:58 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:13:58 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:13:59 [main] [LogUtils] - Set text: ádasdasdasda on element By.xpath: //input[@name='emailid']
+[INFO] 27-01-2026 10:14:04 [main] [LogUtils] - Get text: Email ID is not valid
+[INFO] 27-01-2026 10:14:04 [main] [LogUtils] - Verify equals: Email ID is not valid and Email ID must not be blank
+[INFO] 27-01-2026 10:14:07 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:07 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:07 [main] [LogUtils] - Clicked element By.xpath: (//a[contains(text(), 'Selenium')])[1]
+[INFO] 27-01-2026 10:14:16 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:16 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:16 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:17 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='Insurance Project']
+[INFO] 27-01-2026 10:14:21 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:21 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:21 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:22 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='Agile Project']
+[INFO] 27-01-2026 10:14:25 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:25 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:25 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:27 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='Bank Project']
+[INFO] 27-01-2026 10:14:29 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:29 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:29 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:30 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='Security Project']
+[INFO] 27-01-2026 10:14:34 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:34 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:34 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:35 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='Telecom Project']
+[INFO] 27-01-2026 10:14:39 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:39 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:39 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:40 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='Payment Gateway Project']
+[INFO] 27-01-2026 10:14:43 [main] [LogUtils] - Open URL: https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:43 [main] [LogUtils] - Verify equals: https://demo.guru99.com/ and https://demo.guru99.com/
+[INFO] 27-01-2026 10:14:43 [main] [LogUtils] - Found element successfully
+[INFO] 27-01-2026 10:14:44 [main] [LogUtils] - Click an element successfully: //ul[contains(@class,'navbar-nav')]//a[normalize-space()='New Tours']
