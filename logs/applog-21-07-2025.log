@@ -1,5 +1,0 @@
-[INFO] 21-07-2025 08:26:16 [main] [LogUtils] - Open URL: https://chatgpt.com/
-[INFO] 21-07-2025 08:26:16 [main] [LogUtils] - Clicked element By.xpath: //div[@id='prompt-textarea']
-[INFO] 21-07-2025 08:26:16 [main] [LogUtils] - Set text: Hi on element By.xpath: //div[@id='prompt-textarea']
-[INFO] 21-07-2025 08:26:16 [main] [LogUtils] - Clicked element By.xpath: //div[@class='ms-auto flex items-center gap-1.5']
-[ERROR] 21-07-2025 08:26:42 [main] [LogUtils] - Timeout waiting for the element Visible. By.xpath: (//span[@class='touch:w-10 flex h-8 w-8 items-center justify-center'])[3]
