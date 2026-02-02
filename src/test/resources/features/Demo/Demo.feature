@@ -59,3 +59,7 @@ Feature: Demo for POC
 #    Viết thêm function để switch tab
   Scenario: Check new tab
     When i open new tab
+
+#    Viết thêm function để check setMaskedText
+  Scenario: Input Masked email
+    When I input masked email into Email field

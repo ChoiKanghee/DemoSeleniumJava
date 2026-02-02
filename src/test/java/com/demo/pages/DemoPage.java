@@ -113,6 +113,12 @@ public class DemoPage {
         WebUI.refresh();
         WebUI.delay(5);
         WebUI.forward();
+    }
 
+    public static void inputMaskedEmail() {
+        WebUI.waitForElementVisible(inputEmail, 30);
+        WebUI.setMaskedText(inputEmail,ConstantGlobal.USERNAME);
+        System.out.println(inputEmail);
+        WebUI.delay(5);
     }
 }

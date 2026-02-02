@@ -5,10 +5,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.hu.De;
-import io.cucumber.datatable.DataTable;
-import org.example.keywords.WebUI;
-import org.openqa.selenium.By;
 
 public class StepDemo {
     @Given("I navigate to Guru page")
@@ -64,5 +60,10 @@ public class StepDemo {
     @When("i open new tab")
     public void iOpenNewTab() {
         DemoPage.openNewTab();
+    }
+
+    @When("I input masked email into Email field")
+    public void iInputMaskedEmailIntoEmailField() {
+        DemoPage.inputMaskedEmail();
     }
 }

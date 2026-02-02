@@ -8,6 +8,7 @@ import org.example.helpers.SystemHelpers;
 import org.example.reports.AllureManager;
 import org.example.reports.ExtentTestManager;
 import org.example.utils.LogUtils;
+import org.openqa.selenium.support.ui.Select;
 import com.aventstack.extentreports.Status;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
@@ -1036,6 +1037,176 @@ public class WebUI {
                     "openNewTab_" + SystemHelpers.makeSlug(url)
             );
         }
+    }
+
+    @Step("Set masked text on {0}")
+    public static void setMaskedText(By by, String value) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        WebElement element = getWebElement(by);
+        element.clear();
+        element.sendKeys(value);
+
+        LogUtils.info("Set masked text: ****** on element " + by);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("setMaskedText_" + SystemHelpers.makeSlug(by.toString()));
+        }
+    }
+
+//    ======================= Select / Dropdown List =======================
+
+    @Step("Select option by index {1} on {0}")
+    public static void selectOptionByIndex(By by, int index) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        select.selectByIndex(index);
+
+        LogUtils.info("Select option by index: " + index + " on element " + by);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("selectByIndex_" + index + "_" + SystemHelpers.makeSlug(by.toString()));
+        }
+    }
+
+    @Step("Select option by label on {0}")
+    public static void selectOptionByLabel(By by, String label) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        select.selectByVisibleText(label);
+
+        LogUtils.info("Select option by label: " + label + " on element " + by);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("selectByLabel_" + SystemHelpers.makeSlug(by.toString()));
+        }
+    }
+
+    @Step("Select option by value on {0}")
+    public static void selectOptionByValue(By by, String value) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        select.selectByValue(value);
+
+        LogUtils.info("Select option by value: " + value + " on element " + by);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("selectByValue_" + SystemHelpers.makeSlug(by.toString()));
+        }
+    }
+
+    /**
+     * Select ALL options - only works for <select multiple>.
+     */
+    @Step("Select all options on {0}")
+    public static void selectAllOptions(By by) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        if (!select.isMultiple()) {
+            Assert.fail("selectAllOptions failed: dropdown is NOT multi-select. " + by);
+            return;
+        }
+
+        List<WebElement> options = select.getOptions();
+        for (WebElement option : options) {
+            String text = option.getText();
+            // Skip empty placeholder option if any
+            if (text != null && !text.trim().isEmpty()) {
+                select.selectByVisibleText(text);
+            }
+        }
+
+        LogUtils.info("Selected all options on element " + by + ". Total options: " + options.size());
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot("selectAllOptions_" + SystemHelpers.makeSlug(by.toString()));
+        }
+    }
+
+    // ======================= Deselect / Dropdown helpers (Multi-select only) =======================
+
+    @Step("Deselect all options on {0}")
+    public static void deselectAllOptions(By by) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        if (!select.isMultiple()) {
+            Assert.fail("deselectAllOptions failed: dropdown is NOT multi-select. " + by);
+            return;
+        }
+
+        select.deselectAll();
+        LogUtils.info("Deselected all options on element " + by);
+
+        if (PropertiesHelpers.getValue("SCREENSHOT_STEP").equals("yes")) {
+            CaptureHelpers.takeScreenshot(
+                    "deselectAllOptions_" + SystemHelpers.makeSlug(by.toString())
+            );
+        }
+    }
+
+    @Step("Deselect option by index {1} on {0}")
+    public static void deselectOptionByIndex(By by, int index) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        if (!select.isMultiple()) {
+            Assert.fail("deselectOptionByIndex failed: dropdown is NOT multi-select. " + by);
+            return;
+        }
+
+        select.deselectByIndex(index);
+        LogUtils.info("Deselected option by index: " + index + " on element " + by);
+    }
+
+    @Step("Deselect option by label on {0}")
+    public static void deselectOptionByLabel(By by, String label) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        if (!select.isMultiple()) {
+            Assert.fail("deselectOptionByLabel failed: dropdown is NOT multi-select. " + by);
+            return;
+        }
+
+        select.deselectByVisibleText(label);
+        LogUtils.info("Deselected option by label: " + label + " on element " + by);
+    }
+
+    @Step("Deselect option by value on {0}")
+    public static void deselectOptionByValue(By by, String value) {
+        waitForPageLoaded();
+        waitForElementVisible(by);
+        sleep(STEP_TIME);
+
+        Select select = new Select(getWebElement(by));
+        if (!select.isMultiple()) {
+            Assert.fail("deselectOptionByValue failed: dropdown is NOT multi-select. " + by);
+            return;
+        }
+
+        select.deselectByValue(value);
+        LogUtils.info("Deselected option by value: " + value + " on element " + by);
     }
 
 }
